@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -13,6 +14,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const MainContainer = styled(motion.div)`
   display: flex;
@@ -112,6 +114,7 @@ const App = () => {
             ©
           </motion.div>
         </LoadingScreen>
+        <SpeedInsights/>
       </ThemeProvider>
     );
   }
@@ -187,6 +190,7 @@ const App = () => {
           </FooterWrapper>
         </Router>
     </ThemeProvider>
+   
   );
 };
 
