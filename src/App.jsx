@@ -14,7 +14,8 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
-import { SpeedInsights } from "@vercel/speed-insights/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
 const MainContainer = styled(motion.div)`
   display: flex;
@@ -114,7 +115,11 @@ const App = () => {
             ©
           </motion.div>
         </LoadingScreen>
+
+        <Analytics/>
         <SpeedInsights/>
+
+        
       </ThemeProvider>
     );
   }
