@@ -6,6 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaInfoCircle, FaSearch } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import debounce from 'lodash/debounce';
+import travel from "../images/travel.jpg";
+import pet from "../images/pet.avif";
+import sap from "../images/sap.jpg";
+
 
 // Animation Keyframes
 const fadeIn = keyframes`
@@ -330,66 +334,36 @@ const Projects = () => {
   const [projects] = useState([
     {
       id: 1,
-      title: "AI-Powered Chat Platform",
-      description: "An innovative chat application leveraging OpenAI's GPT-3 for intelligent conversations and real-time language translation.",
-      tags: ["React", "Node.js", "OpenAI API"],
+      title: "Travel Planner",
+      description: "Developed a MERN stack travel planner with booking forms, authentication, responsive UI, and admin panel with analytics.",
+      tags: ["MERN", "React", "Node.js", "MongoDB"],
       category: "fullstack",
-      github: "https://github.com/username/ai-chat",
-      demo: "https://ai-chat-demo.com",
-      stats: {
-        stars: 120,
-        forks: 25,
-        views: 1500
-      },
-      image: "/path/to/project-image.jpg"
+      github: "https://github.com/kapeesh-selvathangaraj/travel-planner",
+      demo: "https://travel-planner-app.vercel.app",
+      image: travel,
     },
     {
       id: 2,
-      title: "E-commerce Platform",
-      description: "A robust e-commerce website with secure payment processing, user authentication, and a seamless shopping experience.",
-      tags: ["React", "Node.js", "MongoDB", "Express"],
+      title: "Pet Adoption Website",
+      description: "Full-stack MERN pet adoption platform with secure auth, real-time notifications, and an admin dashboard for management.",
+      tags: ["MERN", "React", "Node.js", "MongoDB"],
       category: "fullstack",
-      github: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      demo: "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-      stats: {
-        stars: 200,
-        forks: 50,
-        views: 3000
-      },
-      image: "/path/to/project-image.jpg"
+      github: "https://github.com/kapeesh-selvathangaraj/pet-adoption",
+      demo: "https://pet-adopt.vercel.app",
+      image: "https://images.unsplash.com/photo-1587004714892-bdb8e20636e9?crop=entropy&cs=tinysrgb&fit=max&ixid=M3wzNjYyMnwwfDF8c2VhY2h8Mnx8cGV0fGVufDB8fHx8fDE2ODMwNjMzMTY&ixlib=rb-1.2.1&q=80&w=400"
     },
     {
       id: 3,
-      title: "AI-Powered Chat Platform",
-      description: "An innovative chat application leveraging OpenAI's GPT-3 for intelligent conversations and real-time language translation.",
-      tags: ["React", "Node.js", "OpenAI API"],
+      title: "Students Activity Points System",
+      description: "Activity point management system built during KEC Hackathon 2024 with role-based access and UI for tracking student performance.",
+      tags: ["React", "Node.js", "MongoDB"],
       category: "fullstack",
-      github: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      demo: "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-      stats: {
-        stars: 120,
-        forks: 25,
-        views: 1500
-      },
-      image: "/path/to/project-image.jpg"
-    },
-    {
-      id: 4,
-      title: "E-commerce Platform",
-      description: "A robust e-commerce website with secure payment processing, user authentication, and a seamless shopping experience.",
-      tags: ["React", "Node.js", "MongoDB", "Express"],
-      category: "fullstack",
-      github: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      demo: "XXXXXXXXXXXXXXXXXXXXXXXXXX",
-      stats: {
-        stars: 200,
-        forks: 50,
-        views: 3000
-      },
-      image: "/path/to/project-image.jpg"
+      github: "https://github.com/kapeesh-selvathangaraj/activity-points-system",
+      demo: "https://activity-points.vercel.app",
+      image: "https://images.unsplash.com/photo-1509652032822-4f1904217581?crop=entropy&cs=tinysrgb&fit=max&ixid=M3wzNjYyMnwwfDF8c2VhY2h8OXx8YWRtaW5pc3RyYXRpb258ZW58MHx8fHx8fDE2ODMwNjM0MDc&ixlib=rb-1.2.1&q=80&w=400"
     }
-    // ... (your other projects)
   ]);
+  
 
   // Memoized filtered projects
   const filteredProjects = useMemo(() => {
@@ -445,20 +419,6 @@ const Projects = () => {
               onChange={(e) => handleSearch(e.target.value)}
             />
           </SearchContainer>
-
-          <CategoryFilter>
-            {['all', 'frontend', 'fullstack', 'backend'].map(category => (
-              <FilterButton
-                key={category}
-                active={selectedCategory === category}
-                onClick={() => setSelectedCategory(category)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </FilterButton>
-            ))}
-          </CategoryFilter>
 
           <ProjectsGrid
             variants={containerVariants}

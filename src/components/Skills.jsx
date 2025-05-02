@@ -5,27 +5,45 @@ import { SiMongodb, SiExpress, SiJavascript, SiBootstrap, SiFigma, SiPostman } f
 import { VscVscode } from "react-icons/vsc";
 
 const SkillsSection = styled.section`
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
   background-color: ${({ theme }) => theme.background || '#111'};
   color: ${({ theme }) => theme.text || '#fff'};
   min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 
-
-  @media (max-width: 1024px) {
-    padding: 5rem 1.5rem;
+  /* XS */
+  @media (max-width: 575px) {
+    padding: 1rem;
   }
 
-  @media (max-width: 768px) {
-    padding: 4rem 1rem;
+  /* SM */
+  @media (min-width: 576px) and (max-width: 767px) {
+    padding: 1.5rem 2rem;
   }
 
-  @media (max-width: 480px) {
-    padding: 3rem 0.8rem;
+  /* MD */
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 2rem 3rem;
+  }
+
+  /* LG */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding: 2rem 4rem;
+  }
+
+  /* XL and above */
+  @media (min-width: 1200px) {
+    padding: 2rem 4rem;
+  }
+
+  /* Ultra Wide (2XL, 3XL) */
+  @media (min-width: 1400px) {
+    padding: 3rem 6rem;
   }
 `;
 
@@ -39,8 +57,29 @@ const SkillsTitle = styled.h2`
   letter-spacing: 3px;
   animation: fadeIn 1s ease-out forwards;
 
-  @media (max-width: 768px) {
+  /* XS */
+  @media (max-width: 575px) {
+    font-size: 1.8rem;
+  }
+
+  /* SM */
+  @media (min-width: 576px) and (max-width: 767px) {
     font-size: 2rem;
+  }
+
+  /* MD */
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 2.5rem;
+  }
+
+  /* LG */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    font-size: 3rem;
+  }
+
+  /* XL */
+  @media (min-width: 1200px) {
+    font-size: 3.5rem;
   }
 `;
 
@@ -48,7 +87,7 @@ const CategoryContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 2.5rem;
   justify-content: center;
   margin: 2rem auto;
@@ -56,7 +95,7 @@ const CategoryContainer = styled.div`
   opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
   overflow-x: auto;
-  
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -68,22 +107,27 @@ const CategoryContainer = styled.div`
     }
   }
 
-  @media (max-width: 1024px) {
+  /* XS to MD */
+  @media (max-width: 991px) {
+    gap: 1rem;
+  }
+
+  /* LG */
+  @media (min-width: 992px) {
     gap: 2rem;
   }
 
-  @media (max-width: 768px) {
-    gap: 1.5rem;
-    padding: 0 1rem;
+  /* Ultra-Wide */
+  @media (min-width: 1400px) {
+    gap: 3rem;
   }
 `;
 
 const Category = styled.div`
-  background: ${({ theme }) => theme.cardBackground || '#222'};
+  background: ${({ theme }) => theme.card || '#222'};
   padding: 2.5rem 2rem;
   border-radius: 15px;
-  flex: 1;
-  min-width: 280px;
+  flex: 1 1 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,6 +135,7 @@ const Category = styled.div`
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  max-width: 320px; /* Ensure categories are contained on smaller screens */
 
   &::before {
     content: '';
@@ -122,7 +167,7 @@ const Category = styled.div`
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
-    
+
     &::after {
       content: '';
       display: block;
@@ -134,20 +179,34 @@ const Category = styled.div`
     }
   }
 
-  @media (max-width: 1024px) {
-    width: 300px;
+  /* XS */
+  @media (max-width: 575px) {
+    padding: 1.5rem;
+  }
+
+  /* SM */
+  @media (min-width: 576px) and (max-width: 767px) {
     padding: 2rem 1.5rem;
   }
 
-  @media (max-width: 768px) {
-    width: calc(50% - 0.75rem);
-    min-width: 250px;
-    padding: 1.8rem 1.2rem;
+  /* MD */
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 2rem 1.8rem;
+  }
 
-    h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-    }
+  /* LG */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding: 2rem 2rem;
+  }
+
+  /* XL */
+  @media (min-width: 1200px) {
+    padding: 2.5rem 2rem;
+  }
+
+  /* Ultra-Wide */
+  @media (min-width: 1400px) {
+    padding: 3rem 2.5rem;
   }
 `;
 
@@ -157,28 +216,48 @@ const SkillGrid = styled.div`
   gap: 1.5rem;
   justify-items: center;
   width: 100%;
+  margin-top: 2rem;
 
-  @media (max-width: 768px) {
+  /* XS */
+  @media (max-width: 575px) {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+
+  /* SM */
+  @media (min-width: 576px) and (max-width: 767px) {
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    gap: 1rem;
+  }
+
+  /* MD */
+  @media (min-width: 768px) and (max-width: 991px) {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  /* LG */
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  /* Ultra-Wide */
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 `;
-
 const SkillItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  padding: 1.2rem;
-  border-radius: 8px;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 6px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px) scale(1.03);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 
     svg {
       transform: rotate(360deg);
@@ -187,18 +266,28 @@ const SkillItem = styled.div`
   }
 
   svg {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: ${({ theme }) => theme.primary || '#ff6f61'};
     transition: all 0.5s ease;
   }
 
   span {
-    font-size: 0.9rem;
-    text-align: center;
+    font-size: 0.8rem;
     font-weight: 500;
-    opacity: 0.9;
+    text-align: center;
+  }
+
+  @media (max-width: 575px) {
+    padding: 0.6rem;
+    svg {
+      font-size: 1.6rem;
+    }
+    span {
+      font-size: 0.75rem;
+    }
   }
 `;
+
 
 const Skills = () => {
   const categories = {
